@@ -1,33 +1,28 @@
 let express = require('express');
 let router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
-
-const dummyProfile = {
-    _id: '39r8fh',
-    name: ''
+const profiles = {
+    _id: '1234',
+    name: 'dakota'
 };
-// THIS NEEDS MORE WORK -->
-router.get('/', (req, res) => res.json) 
-// HAS DUMMY DATA WILL ADD MORE LATER
-router.get('/:id', (req, res) => res.json({name: "" }))
+
+router.get('/', (req, res) => res.json(profiles))
+
+router.get('/:id', (req, res) => res.json(profiles))
 
 router.post('/', function(req, res){ 
-res.json(dummyProfile)
+res.json(profiles)
 });
 
-router.put('/', function(req, res){ 
-    res.json(dummyProfile)
+router.put('/:id', function(req, res){ 
+    res.json(profiles)
 });    
 
-router.delete('/', function(req, res){
-    res.json(dummyProfile)
+router.delete('/:id', function(req, res){
+    res.json(profiles)
 });
 
-//TODO Need to build Mongoose Schema
+
 //TODO Need to write code that can create a new profile
 
 
