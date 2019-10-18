@@ -17,5 +17,5 @@ const reference_schema = new Schema({
     }
 })
 
-const User = mongoose.model('user', reference_schema);
-module.exports = User;
+const Reference = mongoose.model('user', reference_schema);
+module.exports = Reference;

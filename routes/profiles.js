@@ -1,29 +1,41 @@
 let express = require('express');
 let router = express.Router();
+const User = require('../models/user');
 
-const profiles = {
-    _id: '1234',
-    name: 'dakota'
-};
 
-router.get('/', (req, res) => res.json(profiles))
+router.get('../models/user', function(req, res) {
 
-router.get('/:id', (req, res) => res.json(profiles))
-
-router.post('/', function(req, res){ 
-res.json(profiles)
+  //The variable below will find and pull data to it.
+  User.find({user_schema}, function(err, data){
+  //Everything below this needs to be varified, it may not be right.
+    if(err){
+      res.json({error:"error", message: "somethings missing"})
+    }
+    res.send();
+  });
 });
 
-router.put('/:id', function(req, res){ 
-    res.json(profiles)
+router.post('../models/users', function(req, res){ 
+  const User = {
+    id: User.length + 1,
+    email: req.body.email,
+    phone_number: req.body.phone_number,
+    first_name: req.body.first_name,
+    last_name: req.body.last_name
+}
+User.push(User);
+res.json(User);
+});
+
+router.put('../models/users:id', function(req, res){ 
+  // const  = req.params.id;
+  let users = users.filter(users => {
+    return users.id == req.Id;
+  })[0]
+  res.json()
 });    
 
-router.delete('/:id', function(req, res){
-    res.json(profiles)
-});
-
-
-//TODO Need to write code that can create a new profile
+// router.delete()
 
 
 module.exports = router;

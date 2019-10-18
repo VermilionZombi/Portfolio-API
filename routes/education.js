@@ -7,12 +7,26 @@ const education = {
     completed?: 'yes',
     additional_info?: 'explanation here'
 };
-router.get('/', (req, res) => res.json(education))
 
-router.get('../models/education:id', (req, res) => res.json(education))
+router.get('../models/education', function(req, res) {
+    User.find({education_schema}, function(err, data){
+
+      if(err){
+        res.json({error:"error", message: "somethings missing"})
+      }
+      res.send(Test);
+    });
+  });
 
 router.post('../models/education', function(req, res){ 
-res.json(education)
+    const education = {
+        id: education.length + 1,
+        school: req.body.school,
+        course_of_study: req.body.course_of_study,
+        completed: req.body.completed,
+        additional_info: req.body.additional_info
+    }
+    res.json(test)
 });
 
 router.put('../models/education:id', function(req, res){ 

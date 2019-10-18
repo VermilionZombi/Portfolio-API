@@ -1,16 +1,17 @@
 let express = require('express');
 let router = express.Router();
-const User = require('../models/users');
+const User = require('../models/user');
 
 
-router.get('/', function(req, res){
+router.get('../models/user', function(req, res) {
+
   //The variable below will find and pull data to it.
-  User.find({}, function(err, data){
+  User.find({user_schema}, function(err, data){
   //Everything below this needs to be varified, it may not be right.
     if(err){
       res.json({error:"error", message: "somethings missing"})
     }
-    res.json(data);
+    res.send(Test);
   });
 });
 

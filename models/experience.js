@@ -24,5 +24,5 @@ const experience_schema = new Schema({
         required: true
     },
 })
-const User = mongoose.model('user', experience_schema);
-module.exports = User;
+const Experience = mongoose.model('user', experience_schema);
+module.exports = Experience;

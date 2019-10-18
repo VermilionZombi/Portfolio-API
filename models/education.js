@@ -18,5 +18,5 @@ const education_schema = new Schema({
         type: String
     }
 })
-const User = mongoose.model('user', education_schema);
-module.exports = User;
+const Education = mongoose.model('user', education_schema);
+module.exports = Education;

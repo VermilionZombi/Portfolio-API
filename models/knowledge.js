@@ -16,5 +16,5 @@ const knowledge_schema = new Schema({
         required: true
     },
 })
-const User = mongoose.model('user', knowledge_schema);
-module.exports = User;
+const Knowledge = mongoose.model('user', knowledge_schema);
+module.exports = Knowledge;

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 // MONGOOSE TIME STAMP GOES HERE IF WE WANT IT, USEFUL
 
-const skills_schema = new Schema({
+const skill_schema = new Schema({
     rank: {
         type: Number, default: 0,
         required: true
@@ -15,5 +15,5 @@ const skills_schema = new Schema({
         type: String
     }
 })
-const User = mongoose.model('user', skills_schema);
-module.exports = User;
+const Skill = mongoose.model('user', skill_schema);
+module.exports = Skill;
